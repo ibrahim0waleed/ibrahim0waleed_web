@@ -109,7 +109,7 @@ const Hero: React.FC = () => {
           >
             <motion.img
               whileHover={{ scale: 1.05 }}
-              src="/ibrahim1.jpg"
+              src="/portrait-5-small-1.jpg"
               alt="Ibrahim Al-Sulaiman"
               className="w-80 h-80 object-cover rounded-full shadow-2xl"
               onError={(e) => {
@@ -117,7 +117,7 @@ const Hero: React.FC = () => {
                 const target = e.currentTarget;
                 target.src = "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=500";
               }}
-              onLoad={() => console.log('Ibrahim1.jpg loaded successfully')}
+              onLoad={() => console.log('Portrait image loaded successfully')}
             />
           </motion.div>
         </div>
