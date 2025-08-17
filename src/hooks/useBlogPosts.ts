@@ -18,13 +18,22 @@ export const useBlogPosts = () => {
       const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
       const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
       
-      if (!supabaseUrl || 
-          !supabaseKey || 
-          supabaseUrl.includes('your-project-id') || 
-          supabaseUrl === 'your_supabase_project_url' ||
-          supabaseKey === 'your_supabase_anon_key' ||
-          supabaseUrl.includes('example.supabase.co') ||
-          supabaseUrl.includes('https://example-project.supabase.co')) {
+      console.log('Supabase URL:', supabaseUrl);
+      console.log('Supabase Key:', supabaseKey ? 'Present' : 'Missing');
+      
+      // More comprehensive check for invalid configurations
+      const isInvalidUrl = !supabaseUrl || 
+                          supabaseUrl.includes('your-project-id') || 
+                          supabaseUrl === 'your_supabase_project_url' ||
+                          supabaseUrl.includes('example-project.supabase.co') ||
+                          supabaseUrl.includes('example.supabase.co') ||
+                          supabaseUrl === 'https://example-project.supabase.co';
+                          
+      const isInvalidKey = !supabaseKey || 
+                          supabaseKey === 'your_supabase_anon_key' ||
+                          supabaseKey.includes('example');
+      
+      if (isInvalidUrl || isInvalidKey) {
         console.warn('Supabase not configured. Using empty blog posts.');
         setBlogPosts([]);
         setError(null);
