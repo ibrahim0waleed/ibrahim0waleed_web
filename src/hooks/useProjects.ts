@@ -25,12 +25,29 @@ export const useProjects = () => {
   const fetchProjects = async () => {
     try {
       setLoading(true);
+      
+      // Check if Supabase is properly configured
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      if (!supabaseUrl || supabaseUrl.includes('your-project-id') || supabaseUrl === 'your_supabase_project_url') {
+        console.warn('Supabase not configured. Using empty projects.');
+        setProjects([]);
+        setError(null);
+        setLoading(false);
+        return;
+      }
+
       const { data, error } = await supabase
         .from('projects')
         .select('*')
         .order('created_at', { ascending: false });
 
-      if (error) throw error;
+      if (error) {
+        console.warn('Database not available. Using empty projects.');
+        setProjects([]);
+        setError(null);
+        setLoading(false);
+        return;
+      }
 
       // Transform database projects to frontend format
       const transformedProjects: Project[] = (data || []).map((dbProject: DatabaseProject) => ({

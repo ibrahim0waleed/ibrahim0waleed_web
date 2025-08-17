@@ -14,6 +14,15 @@ export const useBlogPosts = () => {
       
       console.log('Fetching blog posts...');
       
+      // Check if Supabase is properly configured
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      if (!supabaseUrl || supabaseUrl.includes('your-project-id') || supabaseUrl === 'your_supabase_project_url') {
+        console.warn('Supabase not configured. Using empty blog posts.');
+        setBlogPosts([]);
+        setError(null);
+        return;
+      }
+
       const { data, error, count } = await supabase
         .from('blog_posts')
         .select('*', { count: 'exact' })
@@ -23,7 +32,10 @@ export const useBlogPosts = () => {
 
       if (error) {
         console.error('Supabase error:', error);
-        throw error;
+        console.warn('Database not available. Using empty blog posts.');
+        setBlogPosts([]);
+        setError(null);
+        return;
       }
 
       // Transform database blog posts to frontend format
