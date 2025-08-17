@@ -10,9 +10,9 @@ const hasValidUrl = supabaseUrl && supabaseUrl !== 'undefined' && supabaseUrl.st
 const hasValidKey = supabaseAnonKey && supabaseAnonKey !== 'undefined' && supabaseAnonKey.length > 10;
 
 if (!hasValidUrl || !hasValidKey) {
-  console.error('Missing Supabase environment variables. Please check your .env file.');
-  console.error('VITE_SUPABASE_URL:', hasValidUrl ? 'Valid' : 'Invalid or missing');
-  console.error('VITE_SUPABASE_ANON_KEY:', hasValidKey ? 'Valid' : 'Invalid or missing');
+  console.warn('Missing Supabase environment variables. Please check your .env file.');
+  console.warn('VITE_SUPABASE_URL:', hasValidUrl ? 'Valid' : 'Invalid or missing');
+  console.warn('VITE_SUPABASE_ANON_KEY:', hasValidKey ? 'Valid' : 'Invalid or missing');
   
   // Create a dummy client to prevent the app from crashing
   console.warn('Using dummy Supabase client. Database features will not work.');
