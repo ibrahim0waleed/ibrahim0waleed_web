@@ -23,10 +23,12 @@ export const useBlogPosts = () => {
           supabaseUrl.includes('your-project-id') || 
           supabaseUrl === 'your_supabase_project_url' ||
           supabaseKey === 'your_supabase_anon_key' ||
-          supabaseUrl.includes('example.supabase.co')) {
+          supabaseUrl.includes('example.supabase.co') ||
+          supabaseUrl.includes('https://example-project.supabase.co')) {
         console.warn('Supabase not configured. Using empty blog posts.');
         setBlogPosts([]);
         setError(null);
+        setLoading(false);
         return;
       }
 

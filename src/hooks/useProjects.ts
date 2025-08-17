@@ -28,7 +28,15 @@ export const useProjects = () => {
       
       // Check if Supabase is properly configured
       const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-      if (!supabaseUrl || supabaseUrl.includes('your-project-id') || supabaseUrl === 'your_supabase_project_url') {
+      const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+      
+      if (!supabaseUrl || 
+          !supabaseKey || 
+          supabaseUrl.includes('your-project-id') || 
+          supabaseUrl === 'your_supabase_project_url' ||
+          supabaseKey === 'your_supabase_anon_key' ||
+          supabaseUrl.includes('example.supabase.co') ||
+          supabaseUrl.includes('https://example-project.supabase.co')) {
         console.warn('Supabase not configured. Using empty projects.');
         setProjects([]);
         setError(null);
