@@ -12,7 +12,7 @@ if (!supabaseUrl || !supabaseAnonKey || supabaseUrl === 'undefined' || supabaseA
   
   // Create a dummy client to prevent the app from crashing
   console.warn('Using dummy Supabase client. Database features will not work.');
-  supabase = createClient('https://dummy.supabase.co', 'dummy-key');
+  supabase = createClient('https://dummy.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR1bW15Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NDUxOTI4MDAsImV4cCI6MTk2MDc2ODgwMH0.dummy');
 } else {
   supabase = createClient(supabaseUrl, supabaseAnonKey);
 }
