@@ -68,6 +68,16 @@ const Hero: React.FC = () => {
               </motion.a>
 
               <motion.a
+                href="#blog"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center justify-center px-8 py-3 bg-gray-800 hover:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-600 text-white font-medium rounded-lg transition-colors duration-200 group"
+              >
+                {t('viewBlog')}
+                <ArrowRight className={`ml-2 rtl:ml-0 rtl:mr-2 rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform ${language.dir === 'rtl' ? 'rotate-180' : ''}`} size={20} />
+              </motion.a>
+
+              <motion.a
                 href="/resume.pdf"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

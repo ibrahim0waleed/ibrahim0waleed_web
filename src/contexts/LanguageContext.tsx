@@ -27,6 +27,7 @@ const translations = {
     heroSubtitle: 'Digital Innovation Specialist',
     heroDescription: 'Passionate about creating exceptional digital experiences through innovative web solutions and cutting-edge technology.',
     viewProjects: 'View Projects',
+    viewBlog: 'View Blog',
     downloadResume: 'Download Resume',
     
     // Sections
@@ -79,6 +80,7 @@ const translations = {
     heroSubtitle: 'مختص في الابتكار الرقمي',
     heroDescription: 'شغوف بإنشاء تجارب رقمية استثنائية من خلال حلول الويب المبتكرة والتكنولوجيا المتطورة.',
     viewProjects: 'عرض المشاريع',
+    viewBlog: 'عرض المدونة',
     downloadResume: 'تحميل السيرة الذاتية',
     
     // Sections
